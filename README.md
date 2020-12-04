@@ -51,6 +51,17 @@ After you submit the completed project, we will schedule a follow-up code-review
   "path": "/resource",
   "headers": {},
   "queryStringParameters": {
+    "zip": "90701"
+  }
+}
+```
+
+```json
+{
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
     "date": "2020-11-13"
   }
 }

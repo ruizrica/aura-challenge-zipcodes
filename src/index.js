@@ -17,7 +17,9 @@ module.exports.handler = async event => {
 };
 
 async function processRequest(request) {
-
+    
+    // Note:
+    // I am treating POST request as invalid and only allowing querying via "queryStringParameters" on a GET
     var response; 
     switch (request.httpMethod) {
         case 'GET': 
@@ -38,6 +40,28 @@ async function handleQuery(queryRequest) { console.log('queryRequest IN handleQu
     // - search by full or partial city name
     // - search by closest latitude/longitude
     // - filter by additional attributes
+    let params = queryRequest.queryStringParameters;
+    for (var key in params) {
+
+        if (params.hasOwnProperty('zip')) { //REQ           
+            console.log('ZIP: '+params['zip']);
+        }
+        if (params.hasOwnProperty('city')) { //REQ       
+            console.log('CITY: '+params['city']);
+        }
+        if (params.hasOwnProperty('lat') && params.hasOwnProperty('long')) { //REQ                   
+            console.log('LAT & LONG: '+params['lat']+','+params['long']);
+        }
+        if (params.hasOwnProperty('filterByType') && params.hasOwnProperty('type')) { // ADDITIONAL ATTIBUTE          
+            console.log('TYPE: '+params['type']);
+        }
+        if (params.hasOwnProperty('filterByState') && params.hasOwnProperty('state')) { // ADDITIONAL ATTIBUTE           
+            console.log('STATE: '+params['state']);
+        }
+        if (params.hasOwnProperty('filterByTimezone') && params.hasOwnProperty('timezone')) { // ADDITIONAL ATTIBUTE              
+            console.log('TIMEZONE: '+params['timezone']);
+        }
+    }
     
     var result = [];
     let data = await loadData(); let test = [data[0],data[1],data[2]];
