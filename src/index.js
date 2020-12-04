@@ -41,33 +41,41 @@ async function handleQuery(queryRequest) { console.log('queryRequest IN handleQu
     // - search by closest latitude/longitude
     // - filter by additional attributes
     let params = queryRequest.queryStringParameters;
+    var filter; var hav = false;
     for (var key in params) {
 
+        // Haversine
+        if (params.hasOwnProperty('lat') && params.hasOwnProperty('long')) { //REQ                   
+            //filter = params['zip'];  console.log('LAT & LONG: '+params['lat']+','+params['long']);
+        }
+        
+        // Keyword
         if (params.hasOwnProperty('zip')) { //REQ           
-            console.log('ZIP: '+params['zip']);
+            filter = { "key":"zip", "value":params['zip']}; console.log('ZIP: '+params['zip']);
         }
         if (params.hasOwnProperty('city')) { //REQ       
-            console.log('CITY: '+params['city']);
-        }
-        if (params.hasOwnProperty('lat') && params.hasOwnProperty('long')) { //REQ                   
-            console.log('LAT & LONG: '+params['lat']+','+params['long']);
-        }
-        if (params.hasOwnProperty('filterByType') && params.hasOwnProperty('type')) { // ADDITIONAL ATTIBUTE          
-            console.log('TYPE: '+params['type']);
+            filter = { "key":"city", "value":params['city'] };  console.log('CITY: '+params['city']);
         }
         if (params.hasOwnProperty('filterByState') && params.hasOwnProperty('state')) { // ADDITIONAL ATTIBUTE           
-            console.log('STATE: '+params['state']);
+            filter = { "key":"state", "value":params['zip'] };  console.log('STATE: '+params['state']);
         }
         if (params.hasOwnProperty('filterByTimezone') && params.hasOwnProperty('timezone')) { // ADDITIONAL ATTIBUTE              
-            console.log('TIMEZONE: '+params['timezone']);
+            filter = { "key":"timezone", "value":params['timezone'] };  console.log('TIMEZONE: '+params['timezone']);
+        }
+        if (params.hasOwnProperty('filterByType') && params.hasOwnProperty('type')) { // ADDITIONAL ATTIBUTE          
+            filter = { "key":"type", "value":params['type'] };  console.log('TYPE: '+params['type']);
         }
     }
     
     var result = [];
     let data = await loadData(); let test = [data[0],data[1],data[2]];
-    for (var object in test) {
+    if (hav) {
         
-        result.push(data[object]);
+    } else {
+        for (var object in data) {
+            var ci = data[object];
+            if (ci[filter["key"]].includes(filter["value"])) result.push(data[object]);
+        }
     }
     return result;
 }
@@ -82,7 +90,7 @@ async function loadData() {
         }
     }
     catch (err) {
-        console.error(err)
+        console.error(err);
         return err;
     }
 }

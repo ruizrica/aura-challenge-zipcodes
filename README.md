@@ -55,6 +55,16 @@ After you submit the completed project, we will schedule a follow-up code-review
   }
 }
 ```
+```json
+{
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "zip": "90701"
+  }
+}
+```
 
 ```json
 {
