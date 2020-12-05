@@ -7,6 +7,9 @@
 let geodist = require('geodist');
 let fs = require('fs');
 
+// Constants
+const MAXRESULTS = 20;
+
 // Handler
 module.exports.handler = async event => {
 
@@ -25,7 +28,8 @@ async function processRequest(request) {
             response = await handleQuery(request);
             break;
         default:
-            response = new Error(); response.message = 'Error Processing Request';
+            response = new Error();
+            response.message = 'Error Processing Request';
             break;
     }
     return response;
@@ -33,11 +37,11 @@ async function processRequest(request) {
 
 async function handleQuery(queryRequest) {
 
-    // - implement zipcode api handler
-    // - search by full or partial zipcode
-    // - search by full or partial city name
-    // - search by closest latitude/longitude
-    // - filter by additional attributes
+    // - implement zipcode api handler X
+    // - search by full or partial zipcode X
+    // - search by full or partial city name X
+    // - search by closest latitude/longitude X
+    // - filter by additional attributes X 
     let params = queryRequest.queryStringParameters;
     var filter = {};
     var hav = false;
@@ -66,28 +70,36 @@ async function handleQuery(queryRequest) {
         }
 
         // Haversine
-        if (params.hasOwnProperty('lat') && params.hasOwnProperty('long')) { //REQ                   
-            //filter = params['zip'];  console.log('LAT & LONG: '+params['lat']+','+params['long']);
-            hav = true;
-        }
+        if (params.hasOwnProperty('lat') && params.hasOwnProperty('lon')) hav = true; //REQ
+
     }
 
-    var result;
+    var result = [];
     let data = await loadData();
-    let test = [data[0], data[1], data[2]];
-    if (hav) {
-
-    }
-    else {
-        result = [];
-        for (var object in data) {
-            var ci = data[object]; 
+    for (var object in data) {
+        var ci = data[object];
+        if (hav == true) { // Haversine
+            let lat = params['lat'];
+            let lon = params['lon'];
+            var dist = geodist({ lat: lat, lon: lon }, { lat: ci.latitude, lon: ci.longitude });
+            ci.distance = dist;
+            result.push(data[object]);
+        }
+        else { // Keyword
             try {
                 if (ci[filter.key].includes(filter.value)) { result.push(data[object]); }
             }
-            catch (e) { result = new Error(); result.message = 'Error Processing Request' }
-        } console.log('L: '+result.length);
+            catch (e) {
+                result = new Error();
+                result.message = 'Error Processing Request';
+            }
+        }
     }
+    if (hav == true) {
+        var sort = result.sort((a, b) => a.distance - b.distance);
+        result = sort;
+    }
+    if (result.length > MAXRESULTS) result.length = MAXRESULTS;
     return result;
 }
 
@@ -108,11 +120,11 @@ async function loadData() {
 }
 
 async function buildResponse(completedRequest) {
-    
+
     var statusCode = 200;
     var body = completedRequest;
-    if (completedRequest instanceof Error || completedRequest == {} || completedRequest == undefined) statusCode = 400;
-    
+    if (completedRequest instanceof Error || completedRequest == {} || completedRequest == undefined) statusCode = 400; delete body.length;
+
     let response = {
         statusCode: statusCode,
         body: JSON.stringify(body),
