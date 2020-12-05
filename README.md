@@ -28,7 +28,7 @@
 ```
 
 ```json
-{ // BOGUS
+{ BOGUS
   "httpMethod": "POST",
   "path": "/resouce",
   "headers": {
@@ -39,7 +39,7 @@
 ```
 
 ```json
-{ // ZIP
+{ ZIP
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -49,7 +49,7 @@
 }
 ```
 ```json
-{ // ZIP Partial
+{ ZIP Partial
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -59,7 +59,7 @@
 }
 ```
 ```json
-{ // CITY
+{ CITY
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -69,7 +69,7 @@
 }
 ```
 ```json
-{ // CITY Partial
+{ CITY Partial
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -79,7 +79,7 @@
 }
 ```
 ```json
-{ // STATE 
+{ STATE 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -89,7 +89,7 @@
 }
 ```
 ```json
-{ // COUNTY 
+{ COUNTY 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -99,7 +99,7 @@
 }
 ```
 ```json
-{ // TYPE 
+{ TYPE 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
