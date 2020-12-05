@@ -1,27 +1,18 @@
 # Aura Code Challenge
 
-This challenge will allow you demostrate your knowledge and understanding of node.js.
-It is intended to be familar, much like a development story that could come up on the job.
-After you submit the completed project, we will schedule a follow-up code-review.
-
-## The Story
-
-**Create a lambda-like handler function that can query zip code data in various ways**
-
-- handler function is already bootstrapped in `src/index.js`
-- handler is invoked with events (see below) as would come from API Gateway
-- it is `async` and should return an array or throw an error
-- the dataset to be searched is included in the `src/data.json` file
-- look at the data and decide how best to utilize it
-
-### Acceptance Criteria
+### Criteria
 
 - design and define zipcode api
-- implement zipcode api handler
-- search by full or partial zipcode
-- search by full or partial city name
-- search by closest latitude/longitude
-- filter by additional attributes
+[x] implement zipcode api handler
+[x] search by full or partial zipcode
+[x] search by full or partial city name
+[x] search by closest latitude/longitude
+[x] filter by additional attributes:
+1. state
+2. county
+3. type
+
+
 
 ### Sample Zipcode Object
 
