@@ -81,8 +81,7 @@ async function handleQuery(queryRequest) {
         if (hav == true) { // Haversine
             let lat = params['lat'];
             let lon = params['lon'];
-            var dist = geodist({ lat: lat, lon: lon }, { lat: ci.latitude, lon: ci.longitude });
-            ci.distance = dist;
+            
             result.push(data[object]);
         }
         else { // Keyword
