@@ -15,6 +15,10 @@
 ### Notes:
 > I am treating POST request as invalid and only allowing querying via "queryStringParameters" on a GET
 
+### Frameworks Used:
+- Geodist: https://www.npmjs.com/package/geodist
+- fs: https://nodejs.org/api/fs.html
+
 ### Tests:
 
 #### Bogus Request 1
