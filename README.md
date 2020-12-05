@@ -2,15 +2,15 @@
 
 ### Criteria
 
-[x] design and define zipcode api
-[x] implement zipcode api handler
-[x] search by full or partial zipcode
-[x] search by full or partial city name
-[x] search by closest latitude/longitude
-[x] filter by additional attributes:
-1. state
-2. county
-3. type
+- [x] design and define zipcode api
+- [x] implement zipcode api handler
+- [x] search by full or partial zipcode
+- [x] search by full or partial city name
+- [x] search by closest latitude/longitude
+- [x] filter by additional attributes:
+  1. state
+  2. county
+  3. type
 
 
 
