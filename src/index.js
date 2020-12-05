@@ -92,7 +92,7 @@ async function handleQuery(queryRequest) {
         }
     }
     if (hav == true) {
-        result = result = result.sort((a, b) => a.distance - b.distance);
+        result = result.sort((a, b) => a.distance - b.distance);
     }
     if (result.length > MAXRESULTS) result.length = MAXRESULTS;
     return result;
