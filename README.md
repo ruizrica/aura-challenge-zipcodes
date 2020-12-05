@@ -14,10 +14,11 @@
 
 
 
-### Test Events
+### Tests
 
+# Bogus Request 1
 ```json
-{ BOGUS
+{ 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -26,7 +27,14 @@
   }
 }
 ```
-
+# Bogus Response 1
+```json
+{
+  "statusCode": 400,
+  "body": "{\"message\":\"Error Processing Request\"}"
+}
+```
+# Bogus Request 2
 ```json
 { BOGUS
   "httpMethod": "POST",
