@@ -27,7 +27,6 @@
   }
 }
 ```
-#### Bogus Response 1
 ```json
 {
   "statusCode": 400,
