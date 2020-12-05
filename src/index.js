@@ -79,9 +79,6 @@ async function handleQuery(queryRequest) {
     for (var object in data) {
         var ci = data[object];
         if (hav == true) { // Haversine
-            let lat = params['lat'];
-            let lon = params['lon'];
-            
             result.push(data[object]);
         }
         else { // Keyword
