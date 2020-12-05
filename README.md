@@ -121,7 +121,7 @@
 
 #### State
 ```json
-{ STATE 
+{ 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -138,7 +138,7 @@
 ```
 #### County
 ```json
-{ COUNTY 
+{ 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -155,7 +155,7 @@
 ```
 #### Type
 ```json
-{ TYPE 
+{ 
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
