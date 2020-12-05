@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "geodist": "^0.2.1",
-    "lodash": "^4.17.20"
+    "geodist": "^0.2.1"
   },
   "scripts": {
     "format:fix": "prettier --write **/*.{js,ts,md}",
