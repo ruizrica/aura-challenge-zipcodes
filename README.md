@@ -17,7 +17,7 @@
 ### Test Events
 
 ```json
-{ // BOGUS
+{ BOGUS
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
