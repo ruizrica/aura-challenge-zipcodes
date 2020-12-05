@@ -17,28 +17,7 @@
 ### Test Events
 
 ```json
-{
-  "httpMethod": "GET",
-  "path": "/resource",
-  "headers": {},
-  "queryStringParameters": {
-    "zip": "90701"
-  }
-}
-```
-```json
-{
-  "httpMethod": "GET",
-  "path": "/resource",
-  "headers": {},
-  "queryStringParameters": {
-    "zip": "90701"
-  }
-}
-```
-
-```json
-{
+{ // BOGUS
   "httpMethod": "GET",
   "path": "/resource",
   "headers": {},
@@ -49,12 +28,83 @@
 ```
 
 ```json
-{
+{ // BOGUS
   "httpMethod": "POST",
   "path": "/resouce",
   "headers": {
     "content-type": "application/json"
   },
   "body": "{\"title\":\"hello world\"}"
+}
+```
+
+```json
+{ // ZIP
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "zip": "01230"
+  }
+}
+```
+```json
+{ // ZIP Partial
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "zip": "0123"
+  }
+}
+```
+```json
+{ // CITY
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "primary_city": "Leeds"
+  }
+}
+```
+```json
+{ // CITY Partial
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "primary_city": "Le"
+  }
+}
+```
+```json
+{ // STATE 
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "state": "MA"
+  }
+}
+```
+```json
+{ // COUNTY 
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "county": "Hampshire County"
+  }
+}
+```
+```json
+{ // TYPE 
+  "httpMethod": "GET",
+  "path": "/resource",
+  "headers": {},
+  "queryStringParameters": {
+    "type": "STANDARD"
+  }
 }
 ```
