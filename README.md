@@ -14,9 +14,9 @@
 
 
 
-### Tests
+### Tests:
 
-## Bogus Request 1
+#### Bogus Request 1
 ```json
 { 
   "httpMethod": "GET",
@@ -27,14 +27,14 @@
   }
 }
 ```
-## Bogus Response 1
+#### Bogus Response 1
 ```json
 {
   "statusCode": 400,
   "body": "{\"message\":\"Error Processing Request\"}"
 }
 ```
-## Bogus Request 2
+#### Bogus Request 2
 ```json
 { BOGUS
   "httpMethod": "POST",
