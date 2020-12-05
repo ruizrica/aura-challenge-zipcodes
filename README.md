@@ -2,7 +2,7 @@
 
 ### Criteria
 
-- design and define zipcode api
+[x] design and define zipcode api
 [x] implement zipcode api handler
 [x] search by full or partial zipcode
 [x] search by full or partial city name
