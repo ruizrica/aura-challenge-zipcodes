@@ -14,6 +14,7 @@
 
 ### Notes:
 > I am treating POST request as invalid and only allowing querying via "queryStringParameters" on a GET
+> I set a constant named MAXRESULTS = 20;
 
 ### Frameworks Used:
 - Geodist: https://www.npmjs.com/package/geodist
